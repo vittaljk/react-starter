@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import TodoList from './containers/TodoList';
+import TodoList from './Todo/containers/TodoList';
 
 function App() {
   let routes = (
