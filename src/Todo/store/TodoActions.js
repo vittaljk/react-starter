@@ -20,7 +20,7 @@ export const loadTodos = (payload) => ({
 export const getGlobalTasks = () => {
     return dispatch => {
         dispatch(setLoading(true));
-        axios.get(`http://localhost:8080/api/todo`)
+        axios.get(`${process.env.REACT_APP_API_URL}/todo`)
         .then(res => {
             dispatch(setLoading(false));
             if (res.data) {
