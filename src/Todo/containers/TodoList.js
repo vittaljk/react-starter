@@ -4,7 +4,7 @@ import { getGlobalTasks } from '../store/TodoActions'
 import Aux from '../../Hoc/Aux';
 import Todo from '../components/Todo';
 import logo from '../../logo.svg';
-import styles from './TodoList.module.css';
+import styles from './TodoList.module.scss';
 
 export class TodoList extends Component {
     componentDidMount() {
@@ -14,8 +14,9 @@ export class TodoList extends Component {
     render() {
         return (
             <Aux>
-                {this.props.todoListLoading ? <img src={logo} className={styles['App-logo']} alt="logo" /> : 
-                    <Todo todoList={this.props.todoList}/>
+                {this.props.todoListLoading ? 
+                    <img src={logo} className={styles['App-logo']} alt="logo" />
+                    : <Todo todoList={this.props.todoList}/>
                 }
             </Aux>
         )

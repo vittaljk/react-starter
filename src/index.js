@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
 // import all global style sheets here
-// TODO: replace all with scss and import all in css
-import './styles/index.css';
-import './styles/helpers.css';
-
+import './styles/index.scss';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
