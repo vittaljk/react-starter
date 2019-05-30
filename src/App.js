@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import './App.css';
+// import './App.css';
 import TodoList from './Todo/containers/TodoList';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <div className="center">
       {routes}
     </div>
   );

@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+
+// import all global style sheets here
+// TODO: replace all with scss and import all in css
+import './styles/index.css';
+import './styles/helpers.css';
+
+
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';

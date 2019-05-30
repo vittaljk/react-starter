@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { getGlobalTasks } from '../store/TodoActions'
 // import Aux from '../../Hoc/Aux';
 import Todo from '../components/Todo';
+import logo from '../../logo.svg';
+import './TodoList.module.css';
 
+// TODO: add component specific styles 
 export class TodoList extends Component {
     componentDidMount() {
         this.props.getGlobalTasks();
@@ -12,7 +15,7 @@ export class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.props.todoListLoading ? 'Loading...' : 
+                {this.props.todoListLoading ? <img src={logo} className="App-logo" alt="logo" /> : 
                     <Todo todoList={this.props.todoList}/>
                 }
             </div>
