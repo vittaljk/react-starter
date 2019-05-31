@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getGlobalTasks } from '../store/TodoActions'
+import { getTodos } from '../store/TodoActions'
 import Aux from '../../Hoc/Aux';
 import Todo from '../components/Todo';
 import logo from '../../logo.svg';
 import styles from './TodoList.module.scss';
+import { Input } from "antd";
 
 export class TodoList extends Component {
     componentDidMount() {
-        this.props.getGlobalTasks();
+        this.props.getTodos();
     }
 
     render() {
         return (
             <Aux>
+                <Input placeholder="What needs to be done?"/>
                 {this.props.todoListLoading ? 
                     <img src={logo} className={styles['App-logo']} alt="logo" />
                     : <Todo todoList={this.props.todoList}/>
@@ -32,7 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getGlobalTasks: () => dispatch(getGlobalTasks())
+        getTodos: () => dispatch(getTodos())
     };
 };
 

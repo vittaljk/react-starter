@@ -17,7 +17,7 @@ export const loadTodos = (payload) => ({
     payload
 })
 
-export const getGlobalTasks = () => {
+export const getTodos = () => {
     return dispatch => {
         dispatch(setLoading(true));
         axios.get(`${process.env.REACT_APP_API_URL}/todo`)
