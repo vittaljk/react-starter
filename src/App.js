@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import TodoList from './Todo/containers/TodoList';
+import PlayGround from './playground/playground';
 import 'antd/dist/antd.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <Switch>
       <Route path="/todo-list" component={TodoList} />
       <Route path="/" exact component={TodoList} />
+      <Route path="/playground" component={PlayGround} />
       <Redirect to="/" />
     </Switch>
   );
