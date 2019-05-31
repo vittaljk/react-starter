@@ -4,12 +4,10 @@ import Aux from '../../Hoc/Aux';
 
 function Todo(props) {
     return (
-        props.todoList.map(todo => (
-            <Aux key={todo._id}>
-                <div>{todo.name}</div>
-                <div>{todo.description}</div>
-            </Aux>
-        ))
+        <Aux>
+            <div>{props.todo.name}</div>
+           <div>{props.todo.description}</div>
+        </Aux>
     )
 }
 

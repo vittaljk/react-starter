@@ -5,7 +5,7 @@ import Aux from '../../Hoc/Aux';
 import Todo from '../components/Todo';
 import logo from '../../logo.svg';
 import styles from './TodoList.module.scss';
-import { Input } from "antd";
+import { List } from "antd";
 
 export class TodoList extends Component {
     componentDidMount() {
@@ -15,10 +15,19 @@ export class TodoList extends Component {
     render() {
         return (
             <Aux>
-                <Input placeholder="What needs to be done?"/>
-                {this.props.todoListLoading ? 
+                {this.props.todoListLoading ?
                     <img src={logo} className={styles['App-logo']} alt="logo" />
-                    : <Todo todoList={this.props.todoList}/>
+                    : (
+                        <List
+                            locale={{ emptyText: "No todo items" }}
+                            dataSource={this.props.todoList}
+                            renderItem={todo => (
+                                <List.Item>
+                                    <Todo todo={todo}/>
+                                </List.Item>
+                            )}
+                        />
+                    )
                 }
             </Aux>
         )
