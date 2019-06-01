@@ -4,8 +4,7 @@ import { getTodos } from '../store/TodoActions'
 import Aux from '../../Hoc/Aux';
 import Todo from '../components/Todo';
 import logo from '../../logo.svg';
-import styles from './TodoList.module.scss';
-import { List,Button } from "antd";
+import { List, Button } from 'antd';
 
 export class TodoList extends Component {
     componentDidMount() {
@@ -16,12 +15,12 @@ export class TodoList extends Component {
         return (
             <Aux>
                 {this.props.todoListLoading ?
-                    <img src={logo} className={styles['App-logo']} alt="logo" />
+                    <img src={logo} alt="logo" />
                     : (
                         <Aux>
                             <Button type="primary">Add Todo</Button>
                             <List
-                                locale={{ emptyText: "No todo items" }}
+                                locale={{ emptyText: 'No todo items' }}
                                 dataSource={this.props.todoList}
                                 renderItem={todo => (
                                     <List.Item>
