@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getGlobalTasks } from '../store/TodoActions'
+import { getTodos } from '../store/TodoActions'
 import Aux from '../../Hoc/Aux';
 import Todo from '../components/Todo';
 import logo from '../../logo.svg';
 import styles from './TodoList.module.scss';
+import { List,Button } from "antd";
 
 export class TodoList extends Component {
     componentDidMount() {
-        this.props.getGlobalTasks();
+        this.props.getTodos();
     }
 
     render() {
         return (
             <Aux>
-                {this.props.todoListLoading ? 
+                {this.props.todoListLoading ?
                     <img src={logo} className={styles['App-logo']} alt="logo" />
-                    : <Todo todoList={this.props.todoList}/>
+                    : (
+                        <Aux>
+                            <Button type="primary">Add Todo</Button>
+                            <List
+                                locale={{ emptyText: "No todo items" }}
+                                dataSource={this.props.todoList}
+                                renderItem={todo => (
+                                    <List.Item>
+                                        <Todo todo={todo}/>
+                                    </List.Item>
+                                )}
+                            />
+                        </Aux>
+                    )
                 }
             </Aux>
         )
@@ -32,7 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getGlobalTasks: () => dispatch(getGlobalTasks())
+        getTodos: () => dispatch(getTodos())
     };
 };
 
