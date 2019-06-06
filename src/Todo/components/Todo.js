@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Aux from '../../Hoc/Aux';
+import { Button } from "antd";
 
 function Todo(props) {
     return (
         <Aux>
             <div>{props.todo.name}</div>
-           <div>{props.todo.description}</div>
+            <div>{props.todo.description}</div>
+            <Button type="primary" onClick={() => props.deleteTodo(props.todo)}>Delete</Button>
+            <Button type="primary" onClick={() => props.editTodo(props.todo)}>Edit</Button>
         </Aux>
     )
 }
