@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getGlobalTasks } from '../store/TodoActions'
-import Aux from '../../Hoc/Aux';
+import Aux from '../../Hoc/Auxillary';
 import Todo from '../components/Todo';
 import logo from '../../logo.svg';
 import styles from './TodoList.module.scss';

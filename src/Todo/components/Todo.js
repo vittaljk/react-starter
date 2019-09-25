@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Aux from '../../Hoc/Aux';
+import Aux from '../../Hoc/Auxillary';
 
 function Todo(props) {
     return (
