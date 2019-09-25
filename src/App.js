@@ -1,12 +1,11 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import TodoList from './Todo/containers/TodoList';
+import DrawCity from './DrawCity/DrawCity';
 
 function App() {
   let routes = (
     <Switch>
-      <Route path="/todo-list" component={TodoList} />
-      <Route path="/" exact component={TodoList} />
+      <Route path="/" exact component={DrawCity} />
       <Redirect to="/" />
     </Switch>
   );
