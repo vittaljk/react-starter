@@ -13,10 +13,14 @@ function DrawCity() {
         ev.dataTransfer.setData("text", ev.target.id);
     }
 
-    const drop = (ev) => {
+    const drop = (ev, i) => {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        if (document.getElementById(data)) {
+            let nodeCopy = document.getElementById(data).cloneNode(true);
+            nodeCopy.id = 'id' + i;
+            ev.target.appendChild(nodeCopy);
+        }
     }
     
     return (
@@ -27,7 +31,7 @@ function DrawCity() {
                 <img id="roadv" className="puzzle-img" src={RoadVertical} draggable="true" onDragStart={(e) => drag(e)} width="336" height="69" alt="img"></img>
             </div>
             <div className="parent">
-                {[...Array(900)].map((e, i) =>  <div key={i} className="children" onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}></div>)}
+                {[...Array(900)].map((e, i) =>  <div key={i} className="children" onDrop={(e) => drop(e, i)} onDragOver={(e) => allowDrop(e)}></div>)}
             </div>  
         </div>
     )
